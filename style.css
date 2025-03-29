@@ -23,11 +23,15 @@ body {
 }
 
 li {
-    background-color: #888888;
+    background-color: #444444;
     padding: 1rem;
     border-radius: 1rem;
     display: block;
     margin: 1rem;
+}
+
+li:hover {
+    background-color: #222222;
 }
 
 h1 {
