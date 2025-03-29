@@ -15,4 +15,16 @@
 body {
     background-color: #000000;
     color: #adecbe;
+
+}
+
+li {
+    background-color: #888888;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+h1 {
+    font-size: 4rem;
+    
 }
