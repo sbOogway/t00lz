@@ -1,37 +1,51 @@
-<span id="r"></span>
+<!DOCTYPE html>
+<html lang="en">
 
-<script>
-  const urlParams = new URLSearchParams(window.location.search);
-  var lng;
-  try {
-    lng = BigInt(urlParams.get("long"));
-  } catch (error) {}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>__l0ng_&_byt3s__</title>
+</head>
 
-  const bytes = urlParams.get("bytes");
+<body class="roboto-mono">
 
-  function longToBytes(long) {
-    const byteArray = [];
-    while (long > 0) {
-      byteArray.unshift(String.fromCharCode(Number(long & BigInt(0xff))));
-      long >>= BigInt(8);
+  <span id="r"></span>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    var lng;
+    try {
+      lng = BigInt(urlParams.get("long"));
+    } catch (error) { }
+
+    const bytes = urlParams.get("bytes");
+
+    function longToBytes(long) {
+      const byteArray = [];
+      while (long > 0) {
+        byteArray.unshift(String.fromCharCode(Number(long & BigInt(0xff))));
+        long >>= BigInt(8);
+      }
+      return byteArray.join("");
     }
-    return byteArray.join("");
-  }
 
-  function bytesToLong(string) {
-    s = string.split("");
-    let long = BigInt(0);
-    for (let i = 0; i < s.length; i++) {
-      long = (long << BigInt(8)) | BigInt(s[i].charCodeAt(0));
+    function bytesToLong(string) {
+      s = string.split("");
+      let long = BigInt(0);
+      for (let i = 0; i < s.length; i++) {
+        long = (long << BigInt(8)) | BigInt(s[i].charCodeAt(0));
+      }
+      return String(long);
     }
-    return String(long);
-  }
 
-  if (lng) {
-    document.getElementById("r").innerText = longToBytes(lng);
-  }
+    if (lng) {
+      document.getElementById("r").innerText = longToBytes(lng);
+    }
 
-  if (bytes) {
-    document.getElementById("r").innerText = bytesToLong(bytes);
-  }
-</script>
+    if (bytes) {
+      document.getElementById("r").innerText = bytesToLong(bytes);
+    }
+  </script>
+</body>
+
+</html>
