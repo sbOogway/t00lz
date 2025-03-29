@@ -26,6 +26,7 @@ li {
     background-color: #888888;
     padding: 1rem;
     border-radius: 1rem;
+    display: block;
 }
 
 h1 {
