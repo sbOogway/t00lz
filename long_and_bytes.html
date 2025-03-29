@@ -2,7 +2,11 @@
 
 <script>
   const urlParams = new URLSearchParams(window.location.search);
-  const lng = BigInt(urlParams.get("long"));
+  var lng;
+  try {
+    lng = BigInt(urlParams.get("long"));
+  } catch (error) {}
+
   const bytes = urlParams.get("bytes");
 
   function longToBytes(long) {
@@ -31,5 +35,3 @@
     document.getElementById("r").innerText = bytesToLong(bytes);
   }
 </script>
-
-
