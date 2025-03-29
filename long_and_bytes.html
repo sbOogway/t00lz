@@ -1,6 +1,8 @@
+<span id="r"></span>
+
 <script>
   const urlParams = new URLSearchParams(window.location.search);
-  const lng = urlParams.get("long");
+  const lng = BigInt(urlParams.get("long"));
   const bytes = urlParams.get("bytes");
 
   function longToBytes(long) {
@@ -30,4 +32,4 @@
   }
 </script>
 
-<span id="r"> </span>
+
