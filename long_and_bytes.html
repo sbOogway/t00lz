@@ -1,0 +1,33 @@
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const lng = urlParams.get("long");
+  const bytes = urlParams.get("bytes");
+
+  function longToBytes(long) {
+    const byteArray = [];
+    while (long > 0) {
+      byteArray.unshift(String.fromCharCode(Number(long & BigInt(0xff))));
+      long >>= BigInt(8);
+    }
+    return byteArray.join("");
+  }
+
+  function bytesToLong(string) {
+    s = string.split("");
+    let long = BigInt(0);
+    for (let i = 0; i < s.length; i++) {
+      long = (long << BigInt(8)) | BigInt(s[i].charCodeAt(0));
+    }
+    return String(long);
+  }
+
+  if (lng) {
+    document.getElementById("r").innerText = longToBytes(lng);
+  }
+
+  if (bytes) {
+    document.getElementById("r").innerText = bytesToLong(bytes);
+  }
+</script>
+
+<span id="r"> </span>
